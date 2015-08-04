@@ -21,3 +21,9 @@
 
 # Ignore database configuration
 /config/database.yml
+
+# Ignore RVM/rbenv files
+.ruby-version
+.ruby-gemset
+
+vendor/bundle
