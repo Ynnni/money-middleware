@@ -4,4 +4,6 @@ class Balance < ActiveRecord::Base
 
   validates :currency, :account, presence: true
   validates :currency, uniqueness: { scope: :account }
+
+  validates :total, presence: true
 end
