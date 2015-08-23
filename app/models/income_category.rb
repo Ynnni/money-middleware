@@ -1,0 +1,3 @@
+class IncomeCategory < Category
+
+end

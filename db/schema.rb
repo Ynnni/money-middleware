@@ -11,25 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613191130) do
+ActiveRecord::Schema.define(version: 20150823103431) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "balances", force: :cascade do |t|
+    t.decimal  "total",                 precision: 10, scale: 2, default: 0.0
+    t.integer  "account_id",  limit: 4
+    t.integer  "currency_id", limit: 4
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
+  end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "title",      limit: 255
+    t.string   "type",       limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "currencies", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "code",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.decimal  "amount",                    precision: 10
-    t.text     "description", limit: 65535
+    t.decimal  "amount",                  precision: 10, scale: 2, default: 0.0
+    t.date     "date"
+    t.string   "notice",      limit: 255
+    t.string   "type",        limit: 255
+    t.integer  "account_id",  limit: 4
+    t.integer  "currency_id", limit: 4
     t.integer  "category_id", limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
   end
 
-  add_index "transactions", ["category_id"], name: "index_transactions_on_category_id", using: :btree
-
-  add_foreign_key "transactions", "categories"
 end
