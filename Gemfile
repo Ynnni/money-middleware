@@ -46,6 +46,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.0'
   gem 'faker'
+  gem 'annotate', '~> 2.6.6'
 end
 
 gem 'responders'
