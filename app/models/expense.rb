@@ -16,5 +16,12 @@
 
 class Expense < Transaction
   belongs_to :category, class_name: 'ExpenseCategory'
+
   validates :category, presence: true
+
+  before_save :decrease_account_balance
+
+  def decrease_account_balance
+    account.decrease_balance amount, currency
+  end
 end

@@ -16,5 +16,12 @@
 
 class Income < Transaction
   belongs_to :category, class_name: 'IncomeCategory'
+
   validates :category, presence: true
+
+  before_save :increase_account_balance
+
+  def increase_account_balance
+    account.increase_balance amount, currency
+  end
 end

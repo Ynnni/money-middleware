@@ -4,7 +4,7 @@ FactoryGirl.define do
     code :UAH
   end
 
-  factory :dollar, class: 'Currency' do
+  factory :currency, aliases: [:dollar], class: 'Currency' do
     title '$'
     code :USD
   end
