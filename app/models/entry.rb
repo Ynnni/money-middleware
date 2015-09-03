@@ -17,5 +17,5 @@ class Entry < ActiveRecord::Base
   belongs_to :currency
   belongs_to :plutus_entry, class_name: 'Plutus::Entry'
 
-  validates_presence_of :account, :currency, :plutus_entry
+  validates_presence_of :account, :currency
 end

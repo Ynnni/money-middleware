@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :account do
-    title { Faker::Business.credit_card_number }
+    name { Faker::Business.credit_card_number }
+    currency
   end
 end

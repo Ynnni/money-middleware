@@ -3,7 +3,7 @@
 # Table name: accounts
 #
 #  id                :integer          not null, primary key
-#  title             :string(255)
+#  name              :string(255)
 #  currency_id       :integer
 #  plutus_account_id :integer
 #  created_at        :datetime         not null
@@ -17,5 +17,6 @@ class Account < ActiveRecord::Base
   has_many :expenses
   has_many :revenues
 
-  validates_presence_of :title, :currency, :plutus_account
+  validates_presence_of :name
+  validates_presence_of :currency
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :category do
-    title { Faker::Lorem.word }
+    name { Faker::Lorem.word }
 
     factory :expense_category, class: :ExpenseCategory do
       factory :expense_category_with_parent, class: :ExpenseCategory do
@@ -8,9 +8,9 @@ FactoryGirl.define do
       end
     end
 
-    factory :income_category, class: :IncomeCategory do
-      factory :income_category_with_parent, class: :IncomeCategory do
-        association :parent, factory: :income_category
+    factory :revenue_category, class: :RevenueCategory do
+      factory :revenue_category_with_parent, class: :RevenueCategory do
+        association :parent, factory: :revenue_category
       end
     end
   end
