@@ -12,7 +12,10 @@
 #  updated_at      :datetime         not null
 #
 
-class Expense < Entry
-  belongs_to :category, class_name: 'ExpenseCategory'
-  validates_presence_of :category
+class Entry < ActiveRecord::Base
+  belongs_to :account
+  belongs_to :currency
+  belongs_to :plutus_entry, class_name: 'Plutus::Entry'
+
+  validates_presence_of :account, :currency, :plutus_entry
 end

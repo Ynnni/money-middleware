@@ -2,30 +2,20 @@
 #
 # Table name: accounts
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                :integer          not null, primary key
+#  title             :string(255)
+#  currency_id       :integer
+#  plutus_account_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 class Account < ActiveRecord::Base
-  has_many :balances
+  belongs_to :currency
+  belongs_to :plutus_account, class_name: 'Plutus::Account'
+
   has_many :expenses
-  has_many :incomes
+  has_many :revenues
 
-  validates :title, presence:  true
-
-  def increase_balance(amount, currency)
-    balance = balance currency
-    balance.increment! :total, amount
-  end
-
-  def decrease_balance(amount, currency)
-    balance = balance currency
-    balance.decrement! :total, amount
-  end
-
-  def balance(currency)
-    balances.find_or_create_by currency: currency
-  end
+  validates_presence_of :title, :currency, :plutus_account
 end

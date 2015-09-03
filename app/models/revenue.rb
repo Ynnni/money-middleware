@@ -12,7 +12,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Expense < Entry
-  belongs_to :category, class_name: 'ExpenseCategory'
+class Revenue < Entry
+  belongs_to :category, class_name: 'RevenueCategory'
   validates_presence_of :category
 end

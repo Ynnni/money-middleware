@@ -50,4 +50,4 @@ group :development, :test do
 end
 
 gem 'responders'
-
+gem 'plutus'

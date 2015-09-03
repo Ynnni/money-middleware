@@ -10,6 +10,6 @@
 #  updated_at :datetime         not null
 #
 
-class IncomeCategory < Category
+class RevenueCategory < Category
   belongs_to :parent, class_name: self
 end
