@@ -11,5 +11,5 @@
 #
 
 class RevenueCategory < Category
-  belongs_to :parent, class_name: self
+
 end
