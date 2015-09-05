@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  it 'balances should invalid if they are not unique in account scope' do
+  let(:account) { create(:account) }
+  it 'should have Plutus Account assigned' do
+    binding.pry
+    expect(account.plutus_account).to be_kind_of Plutus::Account
   end
 end
