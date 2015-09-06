@@ -14,6 +14,10 @@ RSpec.describe Account, type: :model do
   let(:account) { create(:account) }
   let(:currency) { create(:hrivna) }
 
+  it 'should have balance for any currency' do
+    expect(account.balance(currency)).to be
+  end
+
   it 'revenue should increase account balance' do
     revenue = build(:revenue, amount: 100, account: account, currency: currency)
     expect { revenue.save }.to change { account.balance(currency).balance }.from(0).to(100)
