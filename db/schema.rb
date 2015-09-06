@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823103431) do
+ActiveRecord::Schema.define(version: 20150906210720) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "balances", force: :cascade do |t|
+    t.decimal "balance",               precision: 20, scale: 10, default: 0.0
+    t.integer "account_id",  limit: 4
+    t.integer "currency_id", limit: 4
+  end
+
+  add_index "balances", ["account_id"], name: "index_balances_on_account_id", using: :btree
+  add_index "balances", ["currency_id"], name: "index_balances_on_currency_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255

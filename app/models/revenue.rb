@@ -17,4 +17,10 @@
 class Revenue < Transaction
   belongs_to :category, class_name: 'RevenueCategory'
   validates_presence_of :category
+
+  after_save :increase_account_balance
+
+  def increase_account_balance
+    account.balance(currency).increment! :balance, amount
+  end
 end
