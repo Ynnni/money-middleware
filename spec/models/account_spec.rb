@@ -1,8 +1,15 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  let(:account) { create(:account) }
-  it 'should have Plutus Account assigned' do
-    expect(account.plutus_account).to be_valid
-  end
+
 end

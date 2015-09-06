@@ -1,5 +1,9 @@
 FactoryGirl.define do
-  factory :entry do
+  factory :transaction do
+    amount { Faker::Number.decimal(2) }
+    date { Date.today }
+    description { Faker::Lorem.sentence }
+
     account
     currency
 

@@ -1,18 +1,20 @@
 # == Schema Information
 #
-# Table name: entries
+# Table name: transactions
 #
-#  id              :integer          not null, primary key
-#  type            :string(255)
-#  account_id      :integer
-#  currency_id     :integer
-#  category_id     :integer
-#  plutus_entry_id :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id          :integer          not null, primary key
+#  type        :string(255)
+#  currency_id :integer
+#  amount      :decimal(20, 10)
+#  date        :date
+#  description :string(255)
+#  account_id  :integer
+#  category_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
-class Expense < Entry
+class Expense < Transaction
   belongs_to :category, class_name: 'ExpenseCategory'
   validates_presence_of :category
 end
