@@ -26,4 +26,6 @@
 .ruby-version
 .ruby-gemset
 
-vendor/bundle
+/vendor/bundle
+
+/public/assets
