@@ -50,3 +50,7 @@ group :development, :test do
 end
 
 gem 'responders'
+gem 'react-rails', '~> 1.0'
+
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'haml-rails'
