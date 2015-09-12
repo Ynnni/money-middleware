@@ -1,13 +1,27 @@
 class AccountsController < ApplicationController
   respond_to :html, :json
 
+  def index
+    @accounts = Account.all
+  end
+
   def create
     @account = Account.create account_params
     respond_with @account
   end
 
-  def index
-    @accounts = Account.all
+  def update
+    @account = Account.find params[:id]
+    @account.update account_params
+    respond_with @account do |format|
+      format.json do
+        if @account.valid?
+          render json: @account
+        else
+          render json: @account.errors, status: :unprocessable_entity
+        end
+      end
+    end
   end
 
   def destroy

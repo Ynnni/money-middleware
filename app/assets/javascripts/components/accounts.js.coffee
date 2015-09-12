@@ -6,6 +6,10 @@
   add: (account) ->
     accounts = React.addons.update @state.accounts, { $push: [account] }
     @setState accounts: accounts
+  update: (account, data) ->
+    index = @state.accounts.indexOf account
+    accounts = React.addons.update @state.accounts, { $splice: [[index, 1, data]] }
+    @replaceState accounts: accounts
   delete: (account) ->
     index = @state.accounts.indexOf account
     accounts = React.addons.update @state.accounts, { $splice: [[index, 1]] }
@@ -27,4 +31,4 @@
               React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for account in @state.accounts
-            React.createElement Account, delete: @delete, key: account.id, account: account
+            React.createElement Account, delete: @delete, update: @update, key: account.id, account: account
