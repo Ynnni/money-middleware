@@ -9,7 +9,7 @@
     $.post '',
       { account: @state }
       (data) =>
-        @props.handleNewRecord data
+        @props.add data
         @setState @getInitialState()
       'json'
   valid: ->

@@ -10,6 +10,12 @@ class AccountsController < ApplicationController
     @accounts = Account.all
   end
 
+  def destroy
+    @account = Account.find params[:id]
+    @account.destroy
+    respond_with @account
+  end
+
   private
 
   def account_params
