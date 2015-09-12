@@ -1,7 +1,7 @@
 @Account = React.createClass
   propTypes:
     name: React.PropTypes.string
-  delete: (e) ->
+  handleDelete: (e) ->
     e.preventDefault()
     $.ajax
       method: 'DELETE'
@@ -16,5 +16,5 @@
       React.DOM.td null,
         React.DOM.button
           className: 'btn btn-danger'
-          onClick: @delete
+          onClick: @handleDelete
           'Delete'

@@ -4,13 +4,11 @@
   getDefaultProps: ->
     accounts: []  
   add: (account) ->
-    accounts = @state.accounts
-    accounts.push account
+    accounts = React.addons.update @state.accounts, { $push: [account] }
     @setState accounts: accounts
   delete: (account) ->
-    accounts = @state.accounts.slice()
-    index = accounts.indexOf account
-    accounts.splice index, 1
+    index = @state.accounts.indexOf account
+    accounts = React.addons.update @state.accounts, { $splice: [[index, 1]] }
     @replaceState accounts: accounts
   render: ->
     React.DOM.div
