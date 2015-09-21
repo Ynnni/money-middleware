@@ -51,6 +51,7 @@ end
 
 gem 'responders'
 gem 'react-rails', '~> 1.0'
+gem 'react-router-rails', '~> 0.13'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'haml-rails'
