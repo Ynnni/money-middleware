@@ -10,11 +10,9 @@ class Expenses extends React.Component {
       headers: {
         Accept: 'application/json'
       }
-    }).then((response) => {
-      return response.json()
-    }).then((expenses) => {
-      this.setState({ expenses: expenses })
     })
+      .then((response) => response.json())
+      .then((expenses) => this.setState({ expenses: expenses }))
   }
 
   render () {
