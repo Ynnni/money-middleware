@@ -13,6 +13,12 @@ module Money
       post do
         Account.create(params[:account])
       end
+
+      desc 'Delete a account'
+      delete ':id' do
+        account = Account.find(params[:id])
+        account.destroy
+      end
     end
 
     resource :currencies do
