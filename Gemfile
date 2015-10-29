@@ -55,3 +55,6 @@ gem 'react-router-rails', '~> 0.13'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'haml-rails'
+gem 'grape'
+gem 'rack-cors', require: 'rack/cors'
+gem 'hashie-forbidden_attributes'

@@ -31,5 +31,13 @@ module Accounting
       generate.assets false
       generate.test_framework  false
     end
+
+    config.middleware.use Rack::Cors do
+      allow do
+        origins '*'
+        # location of your API
+        resource '/api/*', headers: :any, methods: [:get, :post, :patch, :delete]
+      end
+    end
   end
 end
