@@ -5,6 +5,7 @@ module Money
 
     # authentication may be here
     mount Resources::AccountsAPI
-    mount Resources::TransactionsAPI
+    mount Resources::ExpensesAPI
+    mount Resources::RevenuesAPI
   end
 end
