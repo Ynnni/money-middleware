@@ -6,6 +6,10 @@ module Resources
         Account.all
       end
 
+      # get '/options', rabl: 'accounts/options' do
+      #   @accounts = Account.all
+      # end
+
       desc 'Create new account'
       post do
         Account.create(params[:account])

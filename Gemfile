@@ -35,5 +35,6 @@ group :development, :test do
 end
 
 gem 'grape'
+gem 'grape-rabl'
 gem 'rack-cors', require: 'rack/cors'
 gem 'hashie-forbidden_attributes'

@@ -37,5 +37,9 @@ module Accounting
         resource '/api/*', headers: :any, methods: [:get, :post, :patch, :delete]
       end
     end
+
+    config.middleware.use Rack::Config do |env|
+      env['api.tilt.root'] = Rails.root.join "app", "views", "api"
+    end
   end
 end
