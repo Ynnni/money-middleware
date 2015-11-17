@@ -2,5 +2,11 @@ language: ruby
 rvm:
   - 2.1.7
   - 2.2.3
-addons:
-  mariadb: '10.0'
+services:
+  - mysql
+script:
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'create database money_test;'
